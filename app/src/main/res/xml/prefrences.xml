@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+            android:defaultValue="10"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:inputType="number"
+            android:title="@string/cache_time"
+            android:key="pref_cache_duration"/>
+    <ListPreference
+            android:title="@string/country"
+            android:key="country"
+            android:entries="@array/country"
+            android:defaultValue="India"
+            android:entryValues="@array/country_code" />
+    <ListPreference
+            android:title="@string/category"
+            android:key="category"
+            android:entries="@array/category_types"
+            android:entryValues="@array/category_types" />
+</PreferenceScreen>

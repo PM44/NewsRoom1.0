@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navgraph"
+            app:startDestination="@id/newsList">
+    <fragment android:id="@+id/newsList" android:name="com.example.newsroom.view.home.NewsList"
+              android:label="fragment_news_list" tools:layout="@layout/fragment_news_list">
+
+        <action android:id="@+id/action_newsList_to_newsDetail" app:destination="@id/newsDetail">
+            <argument
+                    android:name="detail"
+                    app:argType="integer"
+                    android:defaultValue="0"
+            />
+        </action>
+        <action android:id="@+id/action_newsList_to_settingFragment" app:destination="@id/settingFragment"/>
+    </fragment>
+
+
+
+    <fragment android:id="@+id/newsDetail" android:name="com.example.newsroom.view.detail.NewsDetail"
+              android:label="fragment_news_detail" tools:layout="@layout/fragment_news_detail"/>
+    <fragment android:id="@+id/settingFragment" android:name="com.example.newsroom.view.SettingFragment"
+              android:label="SettingFragment"/>
+</navigation>

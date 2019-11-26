@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="news" type="com.example.newsroom.datalayer.model.Articles"/>
+        <variable name="newsPallete" type="com.example.newsroom.datalayer.model.NewsPallete"/>
+        <variable name="onclickListner" type="android.view.View.OnClickListener"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@{newsPallete.color}"
+            android:visibility="visible">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:imageUrl="@{news.urlToImage}"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@{news.title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingEnd="16dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:lineSpacingExtra="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    android:textSize="14dp"
+                    android:paddingEnd="16dp"
+                    android:text="@{news.description}"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_marginTop="16dp"/>
+
+            <TextView
+                    android:text="@string/read_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/read_more"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#0000F2"
+                    android:onClick="@{onclickListner}"
+                    app:layout_constraintTop_toBottomOf="@+id/description"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintHorizontal_bias="0.0"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
